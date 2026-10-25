@@ -11,7 +11,7 @@ from mcp.client.stdio import stdio_client  # STDIO
 from mcp_types import TextContent  # Text Content
 
 # Application
-from settings import settings
+from core.settings import settings  # Core: Settings
 
 
 def server_params(server_script_path: str) -> StdioServerParameters:
