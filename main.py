@@ -4,11 +4,14 @@ import sys  # System
 import asyncio  # AsyncIO
 import json  # JSON
 
+from ollama import chat, ChatResponse, Tool, Message  # Ollama
+
 from mcp import Client, StdioServerParameters  # MCP Client
 from mcp.client.stdio import stdio_client  # STDIO
 from mcp_types import TextContent  # Text Content
 
-from ollama import chat, ChatResponse, Tool, Message  # Ollama
+# Application
+from settings import settings
 
 
 def server_params(server_script_path: str) -> StdioServerParameters:
@@ -57,7 +60,7 @@ async def process_query(client: Client, query: str) -> str | None:
     )
 
     response: ChatResponse = chat(
-        model="qwen2.5:3b",
+        model=settings.MODEL,
         messages=messages,
         tools=available_functions,
     )
@@ -110,7 +113,7 @@ async def process_query(client: Client, query: str) -> str | None:
         )
 
     final_response: ChatResponse = chat(
-        model="qwen2.5:3b",
+        model=settings.MODEL,
         messages=messages,
         tools=available_functions,
     )
