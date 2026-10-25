@@ -46,3 +46,7 @@ cp .env.example .env
 ```
 
 5. Open and edit it.
+
+### Run
+
+> I need to sleep. Let's cover this part later...
